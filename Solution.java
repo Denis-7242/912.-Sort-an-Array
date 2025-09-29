@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class Solution {
     public int[] sortArray(int[] nums) {
         quickSort(nums, 0, nums.length - 1);
@@ -14,7 +16,7 @@ class Solution {
 
     private int partition(int[] nums, int low, int high) {
         int pivot = nums[high];
-        int i = low - 1; 
+        int i = low - 1;
         for (int j = low; j < high; j++) {
             if (nums[j] <= pivot) {
                 i++;
@@ -29,5 +31,12 @@ class Solution {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        int[] nums = {5, 2, 3, 1};
+        int[] sorted = sol.sortArray(nums);
+        System.out.println(Arrays.toString(sorted));
     }
 }
